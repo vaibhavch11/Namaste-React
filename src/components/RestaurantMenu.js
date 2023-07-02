@@ -23,8 +23,10 @@ const RestaurantMenu = () => {
     if(resInfo == null){
         return <Shimmer />;
     }
-
+    
+    //extra added
     const {name, cuisines , costForTwoMessage , areaName , city , avgRating} = resInfo?.cards[0]?.card?.card?.info;
+
     const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card.card;
     console.log(itemCards);
     
@@ -56,7 +58,7 @@ const RestaurantMenu = () => {
               </div>
 
               <div className="container-B">
-                <img src={MENU_Images + item.card.info.imageId} />
+                <img src={MENU_Images + item?.card?.info?.imageId} />
               </div>
 
             </div>

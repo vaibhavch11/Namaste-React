@@ -1,12 +1,23 @@
+*{
+    margin: 0;
+}
+
 .header{
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
     align-items: center;
+    height: 100px;
+}
+
+.logo-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
 }
 
 .logo {
-    width: 100px;
+    height: 100px;
 }
  
 .nav-items > ul{
@@ -20,10 +31,32 @@
     list-style: none;
 }
 
-/* 
------------------Body-------------- */
+/* -----------------Body-------------- */
+
+.body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .search{
     margin: 10px;
+}
+
+.search-box{
+    
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid black;
+}
+
+.search-button{
+    cursor: pointer;
+    padding: 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid black;
 }
 
 .res-container{
@@ -41,7 +74,11 @@
 }
 
 .res-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 200px;
+    height: 270px;
     border: 1px solid rgb(222, 222, 222);
     /* height: 350px; */
     /* padding: 5px; */
@@ -78,9 +115,16 @@
     width: 100%;
 }
 
+.filter{
+    margin-bottom: 20px;
+}
+
 .filter-btn{
     margin: 10px;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
 .shimmer-container{
@@ -171,4 +215,47 @@
 
 .horizontal-line{
     margin-bottom: 50px;
+}
+
+.user-card{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.avatar-img{
+    width: 100px;
+}
+
+.carousel-Body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #161A28;
+    /* width: 100%; */
+    padding: 50px;
+    margin-bottom: 30px;
+}
+
+.carousel-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.carousel-img{
+    /* height: 200px; */
+    cursor: pointer;
+    width: 100%;
+}
+
+.carousel-container {
+    overflow: hidden;
+}
+
+.carousel-container img{
+    transition: transform 0.4s;
+}
+.carousel-container img:hover{
+    transform: scale(1.1);
 }
