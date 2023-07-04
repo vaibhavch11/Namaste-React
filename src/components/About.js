@@ -12,7 +12,7 @@ class About extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className="About-us">
         <h1>About Page !!</h1>
         <UserClass name={"Child 1"} location={"Haridwar"}/>
       </div>

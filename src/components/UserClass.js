@@ -31,7 +31,7 @@ class UserClass extends React.Component{
              <img className="avatar-img" src={this.state.userInfo.avatar_url} />
              <h2>Name : {this.state.userInfo.name}</h2>
              <h3>Location : {this.state.userInfo.location}</h3>
-             <h4> Contact : @vaibhavch11</h4>
+             <h3> Contact : @vaibhavch11</h3>
             </div>
         );
     }

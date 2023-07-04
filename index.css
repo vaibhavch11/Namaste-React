@@ -3,10 +3,13 @@
 }
 
 .header{
+    padding-top: 0.5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
+    box-shadow: 0px 5px 8px 0px #F5F4F7;
+    
 }
 
 .logo-container{
@@ -19,16 +22,28 @@
 .logo {
     height: 100px;
 }
+
+.nav-items {
+    width: 100%;
+    text-decoration: none;
+    
+}
  
 .nav-items > ul{
     font-size: 16px;
     display: flex;
+    align-items: center;
 }
 
 .nav-items > ul > li {
     padding: 10px;
     margin: 10px;
     list-style: none;
+   
+}
+
+.nav-items > ul > li > a{
+   text-decoration: none;
 }
 
 /* -----------------Body-------------- */
@@ -179,14 +194,43 @@
     margin: 2px;
 }
 
+.Details-A > h4 {
+    margin-top: 15px ;
+}
+
 .Details-B{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 8px;
+    text-align: center;
+    max-width: 100px;
     border: 1px solid rgb(203, 203, 203);
+    color: white;
+    font-weight: 700;
     border-radius: 5px;
-    width: 50px;
     background-color: #48C578;
+    
+    padding: 10px;
+}
+
+.avgRating{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.Review{
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.Details-B > .avgRating{
+    border-bottom: #bcbcbc;
+}
+
+.Details-B > hr {
+    width: 100%;
 
 }
 
@@ -218,8 +262,14 @@
 }
 
 .user-card{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 10px;
+}
+
+
+.user-card h2,h3{
+    /* border: 1px solid black; */
+    margin-top: 10px;
 }
 
 .avatar-img{
@@ -258,4 +308,8 @@
 }
 .carousel-container img:hover{
     transform: scale(1.1);
+}
+
+.About-us {
+    margin-top: 30px;
 }

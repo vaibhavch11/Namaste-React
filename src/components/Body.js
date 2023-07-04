@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -35,6 +36,8 @@ const Body = () => {
  
   }
 
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus === false) return (<h1>Looks Like you're Offline !!</h1>);
   
 
     return listOfRestaurants.length === 0 ? <Shimmer/> : (

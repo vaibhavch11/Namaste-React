@@ -1,33 +1,21 @@
-import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
 import { MENU_Images } from "../utils/constants";
 import { useParams } from "react-router-dom";
-import { MENU_API_URL } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
 
-    const [resInfo, setResInfo] = useState(null);
-
     const {resId} = useParams();
 
-    useEffect(()=>{
-       fetchData();
-    },[]);
+    //"Custom Hook"
+    const resInfo = useRestaurantMenu(resId);
 
-    const fetchData = async () => {
-        const data = await fetch(MENU_API_URL + resId );
-        const json = await data.json();
-        setResInfo(json.data);
-    }
-
-    if(resInfo == null){
-        return <Shimmer />;
-    }
+    if(resInfo == null){ return <Shimmer />; }
     
     //extra added
-    const {name, cuisines , costForTwoMessage , areaName , city , avgRating} = resInfo?.cards[0]?.card?.card?.info;
+    const {name, cuisines , costForTwoMessage , areaName , city , avgRating, totalRatingsString} = resInfo?.cards[0]?.card?.card?.info;
 
-    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card.card;
+    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
     console.log(itemCards);
     
 
@@ -39,10 +27,14 @@ const RestaurantMenu = () => {
           <h1>{name}</h1>
           <h5>{cuisines.join(", ")}</h5>
           <h5>{areaName} , {city}</h5>
+
+          <h4>{resInfo?.cards[0]?.card?.card?.info.feeDetails.message}</h4>
         </div>
 
         <div className="Details-B">
-         <h4 > {avgRating} ☆ </h4> 
+         <span className="avgRating"> {avgRating} ☆ </span> 
+         <hr />
+         <span className="Review">{totalRatingsString}</span>
         </div>
         
       </div>
