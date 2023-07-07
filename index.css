@@ -1,3 +1,9 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+
 *{
     margin: 0;
 }
@@ -46,7 +52,7 @@
    text-decoration: none;
 }
 
-/* -----------------Body-------------- */
+
 
 .body{
     display: flex;
@@ -63,7 +69,7 @@
     padding: 10px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #DEDE;
 }
 
 .search-button{
@@ -71,7 +77,9 @@
     padding: 10px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgba(216, 226, 216, 0.933);
+    background: #5d8ed5;
+    color: white;
 }
 
 .res-container{
@@ -95,10 +103,7 @@
     width: 200px;
     height: 270px;
     border: 1px solid rgb(222, 222, 222);
-    /* height: 350px; */
-    /* padding: 5px; */
     margin: 15px;
-    /* border-radius: 10px; */
     padding: 20px 20px 30px;
 }
 
@@ -139,7 +144,10 @@
     cursor: pointer;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #DEDE;
+    background: #5d8ed5;
+    color: white;
+    
 }
 
 .shimmer-container{
@@ -164,18 +172,13 @@
 
 
 .RestaurantMenu-items{
-    /* margin-left: 50px;
-    margin-right: 50px; */
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; */
-    margin-top: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
-    /* background-color: rgb(255, 248, 239);
-    width: 100%;
-    height: 150px; */
+
+
+    max-width: 800px;
+    min-height: 800px;
+    flex-direction: column;
+    margin: 20px auto;
+    display: flex;
 
     
 }
@@ -185,7 +188,8 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
-
+    padding: 20px 0px;
+    border-bottom: 1px solid #D3D3D3;
     
 }
 
@@ -199,30 +203,29 @@
 }
 
 .Details-B{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
     text-align: center;
     max-width: 100px;
-    border: 1px solid rgb(203, 203, 203);
-    color: white;
-    font-weight: 700;
-    border-radius: 5px;
-    background-color: #48C578;
-    
-    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #e9e9eb;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 1px 5px #f9f9f9;
+    color: #3d9b6d;
+
 }
 
-.avgRating{
-    margin-bottom: 10px;
-    font-size: 16px;
+.right-side{
+    border-bottom: 1px solid #e9e9eb;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    display: block;
 }
 
 .Review{
-    margin-top: 10px;
+    color: #8b8d97;
     font-size: 12px;
+    font-weight: 500;
 }
 
 .Details-B > .avgRating{
@@ -249,7 +252,11 @@
 }
 
 .container-A{
-    width: 100%;
+    border-bottom: 0.5px solid #d3d3d3;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 0 0 20px;
+    display: flex;
 }
 
 .container-B > img {
@@ -257,18 +264,13 @@
     width: 80%;
 }
 
-.horizontal-line{
-    margin-bottom: 50px;
-}
 
 .user-card{
-    /* border: 1px solid black; */
     padding: 10px;
 }
 
 
 .user-card h2,h3{
-    /* border: 1px solid black; */
     margin-top: 10px;
 }
 
@@ -281,7 +283,6 @@
     align-items: center;
     justify-content: center;
     background-color: #161A28;
-    /* width: 100%; */
     padding: 50px;
     margin-bottom: 30px;
 }
@@ -294,7 +295,6 @@
 }
 
 .carousel-img{
-    /* height: 200px; */
     cursor: pointer;
     width: 100%;
 }
@@ -313,3 +313,129 @@
 .About-us {
     margin-top: 30px;
 }
+
+.item-pic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.item-pic img {
+    width: 118px;
+    height: 96px;
+    border-radius: 6px;
+    margin-bottom: -30px;
+}
+
+.item-title{
+    color: #3e4152;
+    word-break: break-word;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.rate{
+    margin-top: 2px;
+}
+
+.description{
+    width: 98%;
+    color: #282c3f73;
+    letter-spacing: -.3px;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.RestaurantMenu-container{
+    height: 100%;
+    width: 100%;
+    padding: 2em 16px;
+}
+
+.add-btn{
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    height: 36px;
+    width: 96px;
+    cursor: pointer;
+    color: #60b246;
+    background-color: #fff;
+    border: 1px solid #d4d5d9;
+    border-radius: 4px;
+    display: flex;
+    box-shadow: 0 3px 8px #e9e9eb;
+}
+
+.RestaurantOffer-container{
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    overflow: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+
+    padding-bottom: 45px;
+    border-bottom: 0.5px solid #d3d3d3;
+}
+
+.RestaurantOffer-container::-webkit-scrollbar {
+    display: none; 
+  }
+  
+
+.RestaurantOffer-outercontainer{
+    margin-right: 12px;
+}
+
+.RestaurantOffer-innercontainer{
+    box-sizing: border-box;
+    height: 100%;
+    min-width: 200px;
+    cursor: pointer;
+    text-align: left;
+    border: 1px solid #e9e9eb;
+    border-radius: 8px;
+    outline: none;
+    align-items: center;
+    padding: 8px;
+    display: flex;
+    box-shadow: 0 1px 2px #0000000a;
+}
+
+.offerBox{
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+    display: flex;
+}
+
+.offerHeader{
+    white-space: nowrap;
+    color: #686b78;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+}
+
+.offerBody{
+    color: #93959f;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+    margin-top: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.RestaurantOfferIcon{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}  

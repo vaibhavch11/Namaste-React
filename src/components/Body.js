@@ -18,7 +18,6 @@ const Body = () => {
   // we are avoid using setListOfRestaurants, instead of that we are using setFilterRestaurant to render our data.
 
   const [searchText,setSearchText] = useState("");
-
   
 
   useEffect(()=>{
@@ -28,7 +27,6 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.9423253&lng=78.07232479999999&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
-    // console.log(json);
 
     setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilterRestaurant(json?.data?.cards[2]?.data?.data?.cards);
@@ -45,9 +43,11 @@ const Body = () => {
          
          <div className="carousel-Body">
               {carousel.map((item)=> (
-                // <Link className="card-link" key={restaurant.data.id} to={"restaurant/" + restaurant.data.id} >
-                  <Carousel key={item.data.id}  carouselData={item}/>
-                // </Link>
+                <div key={item.data.id}>
+                  <Carousel carouselData={item}/>
+                </div>
+
+                
               ))}
            </div>
 
