@@ -1,4 +1,4 @@
-import React , {lazy , Suspense} from "react";
+import React , {lazy , Suspense, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -7,6 +7,7 @@ import { createBrowserRouter , RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
+import UserContext from "./src/utils/UserContext";
 //import Grocery from "./src/components/Grocery";
 
 
@@ -15,11 +16,19 @@ const Grocery = lazy(()=>import("./src/components/Grocery"));
 const About = lazy(()=>import(("./src/components/About")));
 
 const AppLayout = () => {
+
+   const [user,setUser] = useState({
+      name : "Vaibhav Chauhan",
+      email : "vaibhavchauhan12@gmail.com"
+   })
+   //here we are overwriting the default values.
    return (
-      <div className="app">
-         <Header />
+     <>
+      <UserContext.Provider value={{user: user, setUser : setUser}}> 
+       <Header />
          <Outlet /> 
-      </div>
+      </UserContext.Provider>
+      </>
    )
 };
 

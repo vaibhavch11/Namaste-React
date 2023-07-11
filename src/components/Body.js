@@ -1,10 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
 import resObj from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useContext} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 
 const Body = () => {
@@ -18,6 +19,9 @@ const Body = () => {
   // we are avoid using setListOfRestaurants, instead of that we are using setFilterRestaurant to render our data.
 
   const [searchText,setSearchText] = useState("");
+
+  //getting data from App.js. making our context-API data dynamic
+  const {user, setUser} = useContext(UserContext);
   
 
   useEffect(()=>{
@@ -27,7 +31,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.9423253&lng=78.07232479999999&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
-
+    
     setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilterRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     setCarousel(json?.data?.cards[0]?.data?.data?.cards);
@@ -62,6 +66,18 @@ const Body = () => {
                   setFilterRestaurant(filterRestaurant);
                 }}>Search</button>
               </div>
+
+
+              <input value={user.name} onChange={(e)=>setUser({
+                name: e.target.value,
+                email : "newemail@gmail.com"
+              })}></input>
+
+              {/* <input value={user.email} 
+               onChange={(e)=>setUser({
+                ...user,
+                email : e.target.value
+              })}></input> */}
 
                <button className="filter-btn" onClick={()=>{
                 const filterList = listOfRestaurants.filter((res) => res.data.avgRating > 4);
