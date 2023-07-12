@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/UserContext";
+// import UserContext from "../utils/UserContext";
 
 
 const Body = () => {
@@ -21,7 +21,7 @@ const Body = () => {
   const [searchText,setSearchText] = useState("");
 
   //getting data from App.js. making our context-API data dynamic
-  const {user, setUser} = useContext(UserContext);
+  // const {user, setUser} = useContext(UserContext);
   
 
   useEffect(()=>{
@@ -29,7 +29,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.9423253&lng=78.07232479999999&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
     
     setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
@@ -41,8 +41,9 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   if(onlineStatus === false) return (<h1>Looks Like you're Offline !!</h1>);
   
+  if(listOfRestaurants.length === 0) return( <Shimmer/> );
 
-    return listOfRestaurants.length === 0 ? <Shimmer/> : (
+    return (
        <div className="body">
          
          <div className="carousel-Body">
@@ -68,10 +69,10 @@ const Body = () => {
               </div>
 
 
-              <input value={user.name} onChange={(e)=>setUser({
+              {/* <input value={user.name} onChange={(e)=>setUser({
                 name: e.target.value,
                 email : "newemail@gmail.com"
-              })}></input>
+              })}></input> */}
 
               {/* <input value={user.email} 
                onChange={(e)=>setUser({

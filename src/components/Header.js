@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -11,6 +12,10 @@ const Header = () => {
    const onlineStatus = useOnlineStatus();
 
    const {user} = useContext(UserContext);
+
+   //redux- to render changes in components
+   const cartItems = useSelector((store) => store.cart.items);
+   console.log(cartItems);
 
     return (
       <div className="header">
@@ -21,14 +26,14 @@ const Header = () => {
             
          </div>
          <div className="nav-items">
-            <ul>
+            <ul >
                <li>Online Status : {onlineStatus ? "🟢" : "🔴"}  </li>
-               <li>{user.name}</li>
+               {/* <li>{user.name}</li> */}
                <li><Link to="/">Home</Link></li>
                <li><Link to="/about" >About Us</Link></li>
                <li><Link to="/contact" >Contact</Link></li>
                <li><Link to="/grocery" >Grocery</Link></li>
-               <li>Cart</li>
+               <li><Link to="/cart"> 🛒: <b className="cart-num">{cartItems.length}</b></Link></li>
                <button onClick={()=>{
                   btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
                }}>{btnName}</button>

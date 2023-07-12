@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useState } from "react";
 import { MENU_Images } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const RestaurantMenu = () => {
 
@@ -11,9 +13,6 @@ const RestaurantMenu = () => {
 
     //"Custom Hook"
     const resInfo = useRestaurantMenu(resId);
-
-    //for coupon
-    const [coupon, setCoupon] = useState();
 
     if(resInfo == null){ return <Shimmer />; }
     
@@ -25,6 +24,15 @@ const RestaurantMenu = () => {
 
     //for coupon
     const {offers} = resInfo?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
+
+
+    
+    //--------Redux--------------
+    const dispatch = useDispatch();
+
+    const addFoodItem = (item) => {
+       dispatch(addItem(item));
+    }
     
 
   return (
@@ -75,6 +83,9 @@ const RestaurantMenu = () => {
       {/* <hr className="horizontal-line" /> */}
      
         <div className="Recomm-items"></div>
+
+        {/* <button onClick={()=>handleAddItem()}>Add Item</button> */}
+
           {itemCards.map((item) => (
             <div key={item.card.info.id} className="">
               <div className="container-A">
@@ -89,7 +100,7 @@ const RestaurantMenu = () => {
 
                <div className="item-pic">
                  <img src={MENU_Images + item?.card?.info?.imageId} />
-                 <div className="add-btn"> ADD </div>
+                 <div className="add-btn" onClick={()=>addFoodItem(item)}> ADD </div>
 
                 </div>
                </div>

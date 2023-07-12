@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 const RestaurantCard = ({resData}) => {
 
-  const {user} = useContext(UserContext);
+  // const {user} = useContext(UserContext);
     return (
        <div className="res-card" style={{backgroundColor:"#FEFEFF" }}>
           <img className="res-logo" alt="res-logo" src={CDN_URL + resData.data.cloudinaryImageId }/>
@@ -16,7 +16,7 @@ const RestaurantCard = ({resData}) => {
              <h6>{resData.data.deliveryTime} MINS</h6> 
              <h6>{resData.data.costForTwoString} </h6>
            </div>
-           <h6>{user.name}</h6>
+           {/* <h6>{user.name}</h6> */}
 
        </div>
     )

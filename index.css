@@ -39,12 +39,15 @@
     font-size: 16px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .nav-items > ul > li {
-    padding: 10px;
-    margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* margin: 10px; */
     list-style: none;
+
    
 }
 
@@ -367,8 +370,38 @@
     border: 1px solid #d4d5d9;
     border-radius: 4px;
     display: flex;
+    /* box-shadow: 0 3px 8px #e9e9eb; */
     box-shadow: 0 3px 8px #e9e9eb;
 }
+
+.add-btn:hover{
+    box-shadow: 0 1px 5px #0000000a;
+    color: rgb(9, 172, 9)
+}
+
+.remove-btn{
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    height: 36px;
+    width: 96px;
+    cursor: pointer;
+    color: #dc3131;
+    background-color: #fff;
+    border: 1px solid #d4d5d9;
+    border-radius: 4px;
+    display: flex;
+    /* box-shadow: 0 3px 8px #e9e9eb; */
+    box-shadow: 0 3px 8px #e9e9eb;
+}
+
+.remove-btn:hover{
+    box-shadow: 0 1px 5px #0000000a;
+    color: rgb(172, 9, 9)
+}
+
+
 
 .RestaurantOffer-container{
     display: flex;
@@ -439,3 +472,13 @@
     height: 20px;
     margin-right: 8px;
 }  
+
+.foodItems{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cart-num{
+    color: red;
+}

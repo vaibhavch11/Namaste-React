@@ -8,6 +8,9 @@ import Contact from "./src/components/Contact";
 import Error from "./src/components/Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./src/utils/store";
+import Cart from "./src/components/Cart";
 //import Grocery from "./src/components/Grocery";
 
 
@@ -23,12 +26,12 @@ const AppLayout = () => {
    })
    //here we are overwriting the default values.
    return (
-     <>
+     <Provider store={store}>
       <UserContext.Provider value={{user: user, setUser : setUser}}> 
        <Header />
          <Outlet /> 
       </UserContext.Provider>
-      </>
+      </Provider>
    )
 };
 
@@ -59,7 +62,11 @@ const appRouter = createBrowserRouter([
          {
             path : "/restaurant/:resId",
             element : <RestaurantMenu />
-         }
+         },
+         {
+            path : "/cart",
+            element : <Cart />
+         },
       ],
       errorElement : <Error />,
    },
