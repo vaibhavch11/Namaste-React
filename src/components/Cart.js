@@ -6,7 +6,7 @@ const Cart = () => {
 
 
     const cartItems = useSelector((store)=> store.cart.items);
-    // console.log({...cartItems});
+    console.log({...cartItems});
 
 
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const Cart = () => {
 
     let totalPrice = 0;
     cartItems.forEach((item)=> {
-        totalPrice += item.card.info.price/100;
+        totalPrice += item.card.info.price/100 || item.card.info.defaultPrice/100;
     })
 
     return (

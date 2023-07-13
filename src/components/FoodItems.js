@@ -12,7 +12,7 @@ const FoodItems = ({Itemdata}) => {
          <h3>{Itemdata.name}</h3>
 
          <h5 >{Itemdata.category}</h5>
-         <h4>Price : ₹{Itemdata.price/100} </h4> 
+         <h4>Price : ₹{Itemdata.price/100 || Itemdata.defaultPrice/100} </h4> 
          
      </div>
 

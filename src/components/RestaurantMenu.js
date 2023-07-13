@@ -19,8 +19,10 @@ const RestaurantMenu = () => {
     //extra added
     const {name, cuisines , costForTwoMessage , areaName , city , avgRating, totalRatingsString} = resInfo?.cards[0]?.card?.card?.info;
 
-    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-    console.log(itemCards);
+    //after || this is for mobile view data
+    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    
+    // console.log(itemCards);
 
     //for coupon
     const {offers} = resInfo?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
@@ -93,7 +95,7 @@ const RestaurantMenu = () => {
                 <div className="item-body">
 
                   <div className="item-title">{item?.card?.info?.name} - {" Rs."} </div>
-                  <div className="rate"> {item?.card?.info?.price/100} </div>
+                  <div className="rate"> {item?.card?.info?.price/100 || item?.card?.info?.defaultPrice/100} </div>
                   <div className="description"> {item?.card?.info?.description} </div>
                   <p></p>
                 </div>
