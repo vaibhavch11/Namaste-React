@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import FoodItems from "./FoodItems";
-import { removeItem } from "../utils/cartSlice";
+import { clearCart, removeItem } from "../utils/cartSlice";
 
 const Cart = () => {
 
@@ -15,6 +15,10 @@ const Cart = () => {
         dispatch(removeItem(item));
     }
 
+    const handleCart = () => {
+        dispatch(clearCart());
+    }
+
     let totalPrice = 0;
     cartItems.forEach((item)=> {
         totalPrice += item.card.info.price/100 || item.card.info.defaultPrice/100;
@@ -24,6 +28,7 @@ const Cart = () => {
         <>
          <h1>Cart - {cartItems.length}</h1>
          <h2>Total Price : ₹{totalPrice}</h2>
+         <button className="remove-btn" onClick={()=>handleCart()} >🧹 Clear </button>
         <div className="res-container">
            
             {cartItems.map((item)=> (

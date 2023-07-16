@@ -100,14 +100,21 @@
 }
 
 .res-card{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 200px;
-    height: 270px;
-    border: 1px solid rgb(222, 222, 222);
+    justify-content: space-between; */
+    width: 220px;
+    /* height: 250px; */
+    height: 100%;
+    border: 1px solid rgb(235, 235, 235);
     margin: 15px;
     padding: 20px 20px 30px;
+}
+
+.res-card .cuisines{
+    color: #4d4d4d;
+    margin-top: 10px;
+    font-size: 13px;
 }
 
 .card-link{
@@ -130,6 +137,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 15px;
+}
+
+.extra-info .rating{
+    background-color: #48c479;
+    color: white;
+    padding: 3px 6px;
+
 }
 
 
@@ -478,7 +493,23 @@
     align-items: center;
     flex-direction: column;
 }
-
+/* 
 .cart-num{
     color: red;
+} */
+
+/* .veg{
+   background-color: #48c479;
+   color: white;
+}
+
+.non-veg{
+    background-color: rgb(215, 32, 32);
+    color: white;
+} */
+
+.cart-count{
+    color: #48c479;
+    padding: 5px;
+    font-size: 18px;
 }

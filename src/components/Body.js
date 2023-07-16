@@ -38,6 +38,32 @@ const Body = () => {
  
   }
 
+  const sortRestaurantsByPrice = () => {
+    const sortedList = [...filterRestaurant].sort(
+      (a, b) => a.data.costForTwo - b.data.costForTwo
+    );
+    setFilterRestaurant(sortedList);
+  };
+   
+  console.log(filterRestaurant);
+
+  const sortRestaurantsByTime = () => {
+    const sortedList = [...filterRestaurant].sort(
+      (a, b) => a.data.deliveryTime - b.data.deliveryTime
+    );
+    setFilterRestaurant(sortedList);
+  };
+
+  const sortRestaurantsByPureVeg = () => {
+    const filterList = listOfRestaurants.filter((res) => res.data.veg == true);
+    setFilterRestaurant(filterList);
+  };
+
+  const sortRestaurantsByNonVeg = () => {
+    const filterList = listOfRestaurants.filter((res) => res.data.veg == false);
+    setFilterRestaurant(filterList);
+  };
+
   const onlineStatus = useOnlineStatus();
   if(onlineStatus === false) return (<h1>Looks Like you're Offline !!</h1>);
   
@@ -47,13 +73,13 @@ const Body = () => {
        <div className="body">
          
          <div className="carousel-Body">
+
               {carousel.map((item)=> (
-                <div key={item.data.id}>
+                <div key={item.data.id} >
                   <Carousel carouselData={item}/>
                 </div>
-
-                
-              ))}
+              ))}                
+              
            </div>
 
 
@@ -69,21 +95,27 @@ const Body = () => {
               </div>
 
 
-              {/* <input value={user.name} onChange={(e)=>setUser({
-                name: e.target.value,
-                email : "newemail@gmail.com"
-              })}></input> */}
-
-              {/* <input value={user.email} 
-               onChange={(e)=>setUser({
-                ...user,
-                email : e.target.value
-              })}></input> */}
-
                <button className="filter-btn" onClick={()=>{
                 const filterList = listOfRestaurants.filter((res) => res.data.avgRating > 4);
                 setFilterRestaurant(filterList);
                }}>Rating: 4.0+</button>
+
+              
+              <button className="filter-btn" onClick={()=>sortRestaurantsByTime()}>
+                  Delivery Time
+              </button>
+
+              <button className="filter-btn" onClick={()=>sortRestaurantsByPrice()}>
+                     Sort by Price: Low To High
+              </button>
+
+              <button className="filter-btn veg" onClick={()=>sortRestaurantsByPureVeg()}>
+                    Pure Veg
+              </button>
+
+              <button className="filter-btn non-veg" onClick={()=>sortRestaurantsByNonVeg()}>
+                    Non Veg
+              </button>
            </div>
 
            <div className="res-container">

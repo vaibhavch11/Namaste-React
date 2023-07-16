@@ -28,12 +28,11 @@ const Header = () => {
          <div className="nav-items">
             <ul >
                <li>Online Status : {onlineStatus ? "🟢" : "🔴"}  </li>
-               {/* <li>{user.name}</li> */}
                <li><Link to="/">Home</Link></li>
                <li><Link to="/about" >About Us</Link></li>
                <li><Link to="/contact" >Contact</Link></li>
                <li><Link to="/grocery" >Grocery</Link></li>
-               <li><Link to="/cart"> 🛒: <b className="cart-num">{cartItems.length}</b></Link></li>
+               <li><Link to="/cart"> 🛒: <b className="cart-num"><span className="cart-count">{cartItems.length}</span></b></Link></li>
                <button onClick={()=>{
                   btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
                }}>{btnName}</button>
