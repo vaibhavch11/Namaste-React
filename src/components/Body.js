@@ -59,10 +59,6 @@ const Body = () => {
     setFilterRestaurant(filterList);
   };
 
-  const sortRestaurantsByNonVeg = () => {
-    const filterList = listOfRestaurants.filter((res) => res.data.veg == false);
-    setFilterRestaurant(filterList);
-  };
 
   const onlineStatus = useOnlineStatus();
   if(onlineStatus === false) return (<h1>Looks Like you're Offline !!</h1>);
@@ -111,10 +107,6 @@ const Body = () => {
 
               <button className="filter-btn veg" onClick={()=>sortRestaurantsByPureVeg()}>
                     Pure Veg
-              </button>
-
-              <button className="filter-btn non-veg" onClick={()=>sortRestaurantsByNonVeg()}>
-                    Non Veg
               </button>
            </div>
 

@@ -12,7 +12,7 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const handleRemove = (item) => {
-        dispatch(removeItem(item));
+        dispatch(removeItem(item.card.info.id));
     }
 
     const handleCart = () => {
@@ -21,20 +21,25 @@ const Cart = () => {
 
     let totalPrice = 0;
     cartItems.forEach((item)=> {
-        totalPrice += item.card.info.price/100 || item.card.info.defaultPrice/100;
+        const itemPrice = item.card.info.price / 100 || item.card.info.defaultPrice / 100;
+        totalPrice += itemPrice*item.quantity;
     })
 
     return (
         <>
-         <h1>Cart - {cartItems.length}</h1>
+        <div className="cart-head">
+         <h2>Items - {cartItems.length}</h2>
          <h2>Total Price : ₹{totalPrice}</h2>
          <button className="remove-btn" onClick={()=>handleCart()} >🧹 Clear </button>
+        </div>
+        
         <div className="res-container">
            
             {cartItems.map((item)=> (
                 <div className="foodItems" key={item.card.info.id}>
                 <FoodItems Itemdata = {item.card.info} />
-                <button className="remove-btn" onClick={()=>handleRemove()} >remove 🗑️</button>
+                <button className="add-btn">Quantity: {item.quantity}</button>
+                <button className="remove-btn" onClick={()=>handleRemove(item)} >remove 🗑️</button>
                 </div>
             ))} 
         </div>

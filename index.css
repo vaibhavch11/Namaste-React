@@ -147,6 +147,10 @@
 
 }
 
+.extra-info h6{
+    font-weight: 300;
+}
+
 
 
 .res-logo {
@@ -293,7 +297,9 @@
 }
 
 .avatar-img{
-    width: 100px;
+    width: 30vw;
+    border-radius: 100%;
+
 }
 
 .carousel-Body{
@@ -392,6 +398,10 @@
 .add-btn:hover{
     box-shadow: 0 1px 5px #0000000a;
     color: rgb(9, 172, 9)
+}
+
+.add-btn:active{
+    color: #56c181;
 }
 
 .remove-btn{
@@ -512,4 +522,66 @@
     color: #48c479;
     padding: 5px;
     font-size: 18px;
+}
+
+
+/* .extra-info .rating{
+    background-color: #48c479;
+    color: white;
+    padding: 3px 6px;
+
+} */
+
+.greenbg{
+    background-color: #48c479;
+    color: white;
+    padding: 3px 6px;
+}
+
+.orangebg{
+    background-color: #DB7D39;
+    color: white;
+    padding: 3px 6px;
+}
+
+.yellowbg{
+    background-color: #E0B155;
+    color: white;
+    padding: 3px 6px;
+}
+
+.redbg{
+    background-color: red;
+    color: white;
+    padding: 3px 6px;
+}
+
+.cart{
+    background-color: #E8EDEE;
+}
+
+.cart-Box{
+    width: 100%;
+    height: 100vh;
+}
+
+.cart-container{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+}
+
+.cart-main-box{
+    width: 35vw;
+    height: 60vh;
+    background-color: white;
+}
+
+.cart-head{
+    padding: 15px;
+    background-color: #E8EDEE;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }

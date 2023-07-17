@@ -15,12 +15,14 @@ const RestaurantMenu = () => {
     const resInfo = useRestaurantMenu(resId);
 
     if(resInfo == null){ return <Shimmer />; }
+
+    console.log(resInfo);
     
     //extra added
     const {name, cuisines , costForTwoMessage , areaName , city , avgRating, totalRatingsString} = resInfo?.cards[0]?.card?.card?.info;
 
     //after || this is for mobile view data
-    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    const {itemCards,title} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card || resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     
     // console.log(itemCards);
 
@@ -86,8 +88,8 @@ const RestaurantMenu = () => {
      
         <div className="Recomm-items"></div>
 
-        {/* <button onClick={()=>handleAddItem()}>Add Item</button> */}
-
+           <h1>{title}</h1>
+           
           {itemCards.map((item) => (
             <div key={item.card.info.id} className="">
               <div className="container-A">
@@ -102,8 +104,7 @@ const RestaurantMenu = () => {
 
                <div className="item-pic">
                  <img src={MENU_Images + item?.card?.info?.imageId} />
-                 <div className="add-btn" onClick={()=>addFoodItem(item)}> ADD </div>
-
+                 <button className="add-btn" onClick={()=>addFoodItem(item)}> ADD </button>
                 </div>
                </div>
             </div>
