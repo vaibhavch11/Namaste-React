@@ -59,13 +59,13 @@ async componentDidMount(){
         <div className="socialSection">
          <h3> Connect with me on :</h3>
           <div className="socialMedia-Links">
-            <a href="" target="_blank">
+            <a href="https://www.linkedin.com/in/vaibhav-chauhan-022a571bb/" target="_blank">
               LinkedIn
             </a>
-            <a href="https://instagram.com/_harshitz" target="_blank">
+            <a href="https://twitter.com/vaibhavch11" target="_blank">
                Twitter
             </a>
-            <a href="mailto::chauhanvaibhav1105@gmail.com" target="_blank">
+            <a href="mailto:chauhanvaibhav1105@gmail.com" target="_blank">
              Gmail
             </a>
             
