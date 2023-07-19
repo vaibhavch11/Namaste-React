@@ -14,13 +14,22 @@ class About extends React.Component{
   render(){
     return(
       <div className="About-us">
-        <h1>Hi. I'm Vaibhav Chauhan !!</h1>
+        <div className="About-heading">
+          <h1>Hi. I'm Vaibhav Chauhan !!</h1>
+        </div>
 
-        <h2> I'm a tech enthusiast 👻, and i love designing websites.</h2>
         <UserClass />
         {/* <UserContext.Consumer>
           {({user})=><h3>{user.name} - {user.email}</h3>}
         </UserContext.Consumer> */}
+
+            <div className="Links">
+                    <ul className="lists">
+                        <li>LinkedIn</li>
+                        <li>Github</li>
+                        <li>Twitter</li>
+                    </ul>
+                </div>
       </div>
     )
   }

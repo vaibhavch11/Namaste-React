@@ -28,10 +28,19 @@ class UserClass extends React.Component{
 
         return (
             <div className="user-card">
-             <img className="avatar-img" src={this.state.userInfo.avatar_url} />
-             <h2>Name : {this.state.userInfo.name}</h2>
-             <h3>Location : {this.state.userInfo.location}</h3>
-             <h3> Contact : @vaibhavch11</h3>
+                <div className="about-img">
+                <img className="avatar-img" src={this.state.userInfo.avatar_url} />
+                </div>
+
+                <div className="about-content">
+                    
+                <h3> I'm a tech enthusiast 👻, and i love designing websites.</h3>
+                <h3>Let's connect! I'm passionate about creating valuable content on Data Structures and Algorithms, as well as web development. Looking forward to exchanging knowledge and ideas with like-minded professionals."</h3>
+                  <h2>Name : {this.state.userInfo.name}</h2>
+                  <h3>Location : {this.state.userInfo.location}</h3>
+                </div>
+
+
             </div>
         );
     }

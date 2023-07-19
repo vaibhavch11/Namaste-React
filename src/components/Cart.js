@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import FoodItems from "./FoodItems";
-import { clearCart, removeItem } from "../utils/cartSlice";
+import { addItem, clearCart, discardItem, removeItem } from "../utils/cartSlice";
 
 const Cart = () => {
 
@@ -15,8 +15,16 @@ const Cart = () => {
         dispatch(removeItem(item.card.info.id));
     }
 
+    const handleAdd = (item) => {
+        dispatch(addItem(item))
+    }
+
     const handleCart = () => {
         dispatch(clearCart());
+    }
+
+    const handleDiscardItem = (item) => {
+        dispatch(discardItem(item.card.info.id))
     }
 
     let totalPrice = 0;
@@ -38,8 +46,14 @@ const Cart = () => {
             {cartItems.map((item)=> (
                 <div className="foodItems" key={item.card.info.id}>
                 <FoodItems Itemdata = {item.card.info} />
-                <button className="add-btn">Quantity: {item.quantity}</button>
-                <button className="remove-btn" onClick={()=>handleRemove(item)} >remove 🗑️</button>
+
+                <div className="cart-buttons">
+                  <span className="remove-item-btn" onClick={()=>handleRemove(item)}>-</span>
+                     <span>{item.quantity}</span>
+                  <span className="add-item-btn" onClick={()=>handleAdd(item)} >+</span>
+                </div>
+                <button className="remove-btn" onClick={()=>handleDiscardItem(item)}>Remove</button>
+
                 </div>
             ))} 
         </div>

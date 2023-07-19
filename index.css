@@ -335,8 +335,49 @@
 }
 
 .About-us {
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(219, 219, 106);
+    
 }
+
+.About-heading{
+    background-color: rgb(169, 89, 169);
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.About-heading h1 {
+    padding: 20px;
+}
+
+.user-card{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    /* padding: 20px; */
+ 
+    height: 100vh;
+}
+
+.about-content{
+    width: 50%;
+}
+
+.Links{
+    padding-bottom: 30px;
+}
+
+.Links ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 
 .item-pic{
     display: flex;
@@ -584,4 +625,41 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.cart-buttons{
+    height: 36px;
+    width: 96px;
+    cursor: pointer;
+    color: #60b246;
+    background-color: #fff;
+    border: 1px solid #d4d5d9;
+    border-radius: 4px;
+    display: flex;
+    box-shadow: 0 3px 8px #e9e9eb;
+
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+}
+
+.remove-item-btn{
+    color: #bebfc5;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.add-item-btn{
+    font-size: 25px;
+    animation: none;
+    font-weight: bold;
+}
+
+
+.add-item-btn:active{
+    font-size: 30px;
+}
+
+.remove-item-btn:active{
+    font-size: 30px;
 }

@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import { useState } from "react";
 import { MENU_Images } from "../utils/constants";
-import { addItem } from "../utils/cartSlice";
-import { useDispatch } from "react-redux";
+import { addItem} from "../utils/cartSlice";
+import { useDispatch} from "react-redux";
 
 const RestaurantMenu = () => {
+
 
     const {resId} = useParams();
 
@@ -37,7 +38,7 @@ const RestaurantMenu = () => {
     const addFoodItem = (item) => {
        dispatch(addItem(item));
     }
-    
+
 
   return (
     <div className="RestaurantMenu-items">
@@ -104,7 +105,10 @@ const RestaurantMenu = () => {
 
                <div className="item-pic">
                  <img src={MENU_Images + item?.card?.info?.imageId} />
-                 <button className="add-btn" onClick={()=>addFoodItem(item)}> ADD </button>
+
+                <button className="add-btn" onClick={()=>addFoodItem(item)}> ADD </button>
+                  
+                 
                 </div>
                </div>
             </div>
