@@ -35,26 +35,34 @@ const Cart = () => {
 
     return (
         <>
+        
         <div className="cart-head">
          <h2>Items - {cartItems.length}</h2>
          <h2>Total Price : ₹{totalPrice}</h2>
          <button className="remove-btn" onClick={()=>handleCart()} >🧹 Clear </button>
+         {/* <button className="checkout">Checkout</button> */}
         </div>
         
-        <div className="res-container">
+        <div className="cartItems-container">
+
+    
            
             {cartItems.map((item)=> (
-                <div className="foodItems" key={item.card.info.id}>
+
+    
+                    <div className="foodItems" key={item.card.info.id}>
                 <FoodItems Itemdata = {item.card.info} />
 
-                <div className="cart-buttons">
+
+              <div className="cart-buttons">
                   <span className="remove-item-btn" onClick={()=>handleRemove(item)}>-</span>
                      <span>{item.quantity}</span>
                   <span className="add-item-btn" onClick={()=>handleAdd(item)} >+</span>
                 </div>
-                <button className="remove-btn" onClick={()=>handleDiscardItem(item)}>Remove</button>
+     
 
                 </div>
+                
             ))} 
         </div>
         </>

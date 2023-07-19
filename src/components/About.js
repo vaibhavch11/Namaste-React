@@ -57,17 +57,16 @@ async componentDidMount(){
           </div>
         </div>
         <div className="socialSection">
-          Connect with me on :
-          <div>
+         <h3> Connect with me on :</h3>
+          <div className="socialMedia-Links">
             <a href="" target="_blank">
-            
-               
+              LinkedIn
             </a>
             <a href="https://instagram.com/_harshitz" target="_blank">
-             
+               Twitter
             </a>
             <a href="mailto::chauhanvaibhav1105@gmail.com" target="_blank">
-             <FontAwesomeIcon icon={faEnvelope} />
+             Gmail
             </a>
             
           </div>
