@@ -264,8 +264,8 @@
 
   .carouselInner-Box{
     box-sizing: border-box;
-    height: 100%;
-    min-width: 300px;
+    /* height: 100%;
+    min-width: 300px; */
     cursor: pointer;
     text-align: left;
     /* border: 1px solid #e9e9eb; */
@@ -282,6 +282,8 @@
 
 .carouselInner-Box img{
     /* object-fit: cover; */
+    width: 356px;
+    height: 248px;
 }
 
 
