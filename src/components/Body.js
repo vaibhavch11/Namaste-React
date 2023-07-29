@@ -3,9 +3,9 @@ import resObj from "../utils/mockData";
 import { useEffect, useState , useContext} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import Carousel from "./Carousel";
 import useOnlineStatus from "../utils/useOnlineStatus";
 // import UserContext from "../utils/UserContext";
+import { Carousel_img } from '../utils/constants'
 
 
 const Body = () => {
@@ -29,35 +29,38 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+                                                     
     const json = await data.json();
+
+    console.log(json);
     
-    setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilterRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setCarousel(json?.data?.cards[0]?.data?.data?.cards);
+    setListOfRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilterRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setCarousel(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
  
   }
 
-  const sortRestaurantsByPrice = () => {
-    const sortedList = [...filterRestaurant].sort(
-      (a, b) => a.data.costForTwo - b.data.costForTwo
-    );
-    setFilterRestaurant(sortedList);
-  };
+  // const sortRestaurantsByPrice = () => {
+  //   const sortedList = [...filterRestaurant].sort(
+  //     (a, b) => a.info.parseInt(costForTwo) - b.info.parseInt(costForTwo)
+  //   );
+  //   setFilterRestaurant(sortedList);
+  // };
    
   console.log(filterRestaurant);
 
   const sortRestaurantsByTime = () => {
     const sortedList = [...filterRestaurant].sort(
-      (a, b) => a.data.deliveryTime - b.data.deliveryTime
+      (a, b) => a.info.sla.deliveryTime - b.info.sla.deliveryTime
     );
     setFilterRestaurant(sortedList);
   };
 
-  const sortRestaurantsByPureVeg = () => {
-    const filterList = listOfRestaurants.filter((res) => res.data.veg == true);
-    setFilterRestaurant(filterList);
-  };
+  // const sortRestaurantsByPureVeg = () => {
+  //   const filterList = listOfRestaurants.filter((res) => res.data.veg == true);
+  //   setFilterRestaurant(filterList);
+  // };
 
 
   const onlineStatus = useOnlineStatus();
@@ -68,15 +71,22 @@ const Body = () => {
     return (
        <div className="body">
          
-         <div className="carousel-Body">
+         {/* carousel-Body */}
 
-              {carousel.map((item)=> (
-                <div key={item.data.id} >
-                  <Carousel carouselData={item}/>
-                </div>
-              ))}                
-              
-           </div>
+         <div className="carousel-box">
+         {/* RestaurantOffer-container */}
+         <div className=" carouselOuter-Box">
+
+         {carousel.map((item)=> (
+          <div className="carouselInner-Box" key={item.id} >
+            <img className="carousel-img" alt="carousel-logo" src={Carousel_img + item.imageId }/>
+         </div>
+         ))}                
+
+</div>
+         </div>
+         
+
 
 
            <div className="filter">
@@ -85,14 +95,14 @@ const Body = () => {
               <div className="search">
                 <input type="text" className="search-box" placeholder="Enter Restaurant Name" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
                 <button className="search-button" onClick={()=>{
-                  const filterRestaurant = listOfRestaurants.filter((res)=> res.data.name.toLowerCase().includes(searchText.toLowerCase()));
+                  const filterRestaurant = listOfRestaurants.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                   setFilterRestaurant(filterRestaurant);
                 }}>Search</button>
               </div>
 
 
                <button className="filter-btn" onClick={()=>{
-                const filterList = listOfRestaurants.filter((res) => res.data.avgRating > 4);
+                const filterList = listOfRestaurants.filter((res) => res.info.avgRating > 4);
                 setFilterRestaurant(filterList);
                }}>Rating: 4.0+</button>
 
@@ -101,18 +111,18 @@ const Body = () => {
                   Delivery Time
               </button>
 
-              <button className="filter-btn" onClick={()=>sortRestaurantsByPrice()}>
+              {/* <button className="filter-btn" onClick={()=>sortRestaurantsByPrice()}>
                      Sort by Price: Low To High
               </button>
 
               <button className="filter-btn veg" onClick={()=>sortRestaurantsByPureVeg()}>
                     Pure Veg
-              </button>
+              </button> */}
            </div>
 
            <div className="res-container">
               {filterRestaurant.map((restaurant)=> (
-                <Link className="card-link" key={restaurant.data.id} to={"restaurant/" + restaurant.data.id} >
+                <Link className="card-link" key={restaurant.info.id} to={"restaurant/" + restaurant.info.id} >
                   <RestaurantCard  resData={restaurant}/>
                 </Link>
               ))}
