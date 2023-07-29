@@ -41,12 +41,12 @@ const Body = () => {
  
   }
 
-  // const sortRestaurantsByPrice = () => {
-  //   const sortedList = [...filterRestaurant].sort(
-  //     (a, b) => a.info.parseInt(costForTwo) - b.info.parseInt(costForTwo)
-  //   );
-  //   setFilterRestaurant(sortedList);
-  // };
+  const sortRestaurantsByPrice = () => {
+    const sortedList = [...filterRestaurant].sort(
+      (a, b) => a.info.costForTwo.match(/\d+/g) - b.info.costForTwo.match(/\d+/g)
+    );
+    setFilterRestaurant(sortedList);
+  };
    
   console.log(filterRestaurant);
 
@@ -111,11 +111,11 @@ const Body = () => {
                   Delivery Time
               </button>
 
-              {/* <button className="filter-btn" onClick={()=>sortRestaurantsByPrice()}>
+              <button className="filter-btn" onClick={()=>sortRestaurantsByPrice()}>
                      Sort by Price: Low To High
               </button>
 
-              <button className="filter-btn veg" onClick={()=>sortRestaurantsByPureVeg()}>
+              {/* <button className="filter-btn veg" onClick={()=>sortRestaurantsByPureVeg()}>
                     Pure Veg
               </button> */}
            </div>
