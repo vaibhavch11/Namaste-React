@@ -27,7 +27,14 @@ const Body = () => {
   
 
   useEffect(()=>{
-    fetchData();
+
+    const isMobileView = window.innerWidth < 768;
+     if(isMobileView){
+      fetchMobileData();
+     }
+     else{
+      fetchData();
+     }
   }, []);
 
   const fetchData = async () => {
@@ -45,6 +52,22 @@ const Body = () => {
     setHeader1(json?.data?.cards[2]?.card?.card?.header?.title); //header of card[2]
  
   }
+
+
+
+  const fetchMobileData = async () => {
+    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=29.9423253&lng=78.07232479999999");
+                                                     
+    const json = await data.json();
+
+    console.log(json);
+
+    setFilterRestaurant(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    setListOfRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    setCarousel(json?.data?.success?.cards[3]?.bannerCarousel?.cards);
+ 
+  }
+
 
   const sortRestaurantsByPrice = () => {
     const sortedList = [...filterRestaurant].sort(
@@ -127,6 +150,7 @@ const Body = () => {
 
           <div className="body-header1">
              <h1 >{header1}</h1>
+             c
           </div>
            
 
