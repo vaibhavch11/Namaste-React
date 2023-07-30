@@ -38,11 +38,11 @@ const Header = () => {
 
             <ul className="show-menu">
 
-               <li>Online Status : {onlineStatus ? "🟢" : "🔴"}  </li>
-               <li><Link to="/">Home</Link></li>
+               <li className="online">Online Status : {onlineStatus ? "🟢" : "🔴"}  </li>
+               <li className="home"><Link to="/">Home</Link></li>
                <li><Link to="/about" >About Us</Link></li>
-               <li><Link to="/contact" >Contact</Link></li>
-               <li><Link to="/grocery" >Grocery</Link></li>
+               <li className="contact"><Link to="/contact" >Contact</Link></li>
+               <li ><Link to="/grocery" >Grocery</Link></li>
                <li className="cart-li"><Link to="/cart"> Cart :<b className="cart-num"><span className="cart-count">{cartItems.length}</span></b></Link></li>
 
             </ul>

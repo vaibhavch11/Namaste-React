@@ -20,6 +20,8 @@ const Body = () => {
 
   const [searchText,setSearchText] = useState("");
 
+  const [header1,setHeader1] = useState("");
+
   //getting data from App.js. making our context-API data dynamic
   // const {user, setUser} = useContext(UserContext);
   
@@ -35,9 +37,12 @@ const Body = () => {
 
     console.log(json);
     
-    setListOfRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilterRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    // json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilterRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setCarousel(json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
+
+    setHeader1(json?.data?.cards[2]?.card?.card?.header?.title); //header of card[2]
  
   }
 
@@ -119,6 +124,11 @@ const Body = () => {
                     Pure Veg
               </button> */}
            </div>
+
+          <div className="body-header1">
+             <h1 >{header1}</h1>
+          </div>
+           
 
            <div className="res-container">
               {filterRestaurant.map((restaurant)=> (

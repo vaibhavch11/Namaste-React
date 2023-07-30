@@ -854,3 +854,34 @@
   /* ---------------------------------Header new hamburger---------------------------------- */
  /* CSS for header */
 
+
+
+ 
+.show-menu li.online,
+.show-menu li.home,
+.show-menu li.contact {
+  /* Hide the Online Status, Home, and Contact list items in mobile view */
+  display: none;
+}
+
+/* Media query for mobile view */
+@media (min-width: 768px) {
+  .show-menu li.online,
+  .show-menu li.home,
+  .show-menu li.contact {
+    display: block; /* Show Online Status, Home, and Contact list items in desktop view */
+  }
+}
+
+.body-header1{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+   
+    margin-left: 70px;
+}
+
+
+
+
+
